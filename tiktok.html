@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Rifa da Festa Junina! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fonte limpa e moderna para o corpo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px; /* Padding geral para espaçamento */
+            background: linear-gradient(135deg, #FFD700 0%, #FF8C00 50%, #FF4500 100%); /* Gradiente vibrante */
+            background-size: cover;
+            color: #333;
+            min-height: 100vh; /* Garante que o fundo cubra a tela inteira */
+            justify-content: center; /* Centraliza verticalmente se o conteúdo for pequeno */
+            overflow-x: hidden; /* Evita scroll horizontal */
+            zoom: 0.9; /* Pequeno zoom out para caber mais na tela para o print */
+        }
+        h1 {
+            font-family: 'Fredoka One', cursive; /* Fonte do título divertida e robusta */
+            color: #8B0000; /* Vermelho forte */
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4); /* Sombra mais acentuada */
+            margin-bottom: 20px;
+            font-size: 3.2em !important; /* Título bem grande e forçado */
+            text-align: center;
+            line-height: 1.1;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente para o título */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-weight: bold; /* Título em negrito bem forte */
+        }
+        .info-pix-whatsapp {
+            background-color: #FFF; /* Fundo branco puro para destaque */
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 3px solid #FF4500; /* Borda laranja forte */
+            max-width: 90%;
+            font-size: 1.1em;
+            font-weight: bold; /* Garante que Pix e WhatsApp fiquem em negrito */
+        }
+        .info-pix-whatsapp p {
+            margin: 5px 0;
+            color: #4A2B16;
+        }
+        .info-pix-whatsapp a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .info-pix-whatsapp a:hover {
+            text-decoration: underline;
+        }
+        .rifa-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 50px); /* Ajustado para 8 colunas, números um pouco maiores (50px) */
+            gap: 6px; /* Espaçamento ajustado */
+            max-width: 480px; /* Largura ajustada para caber os 8 números com folga */
+            background-color: #FFFAF0; /* Fundo creme claro para a grade */
+            padding: 18px; /* Padding generoso */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra marcante */
+            border: 4px dashed #D2691E; /* Borda tracejada marrom alaranjada */
+        }
+        .numero {
+            width: 50px; /* Aumentado para melhor legibilidade */
+            height: 50px; /* Aumentado para melhor legibilidade */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #FF8C00; /* Borda laranja */
+            border-radius: 8px; /* Mais arredondado */
+            font-size: 1.5em; /* Fonte dos números bem maior para máxima legibilidade */
+            font-weight: 700; /* Negrito padrão para os números */
+            cursor: pointer;
+            transition: all 0.2s ease-in-out; /* Transição mais suave */
+            user-select: none;
+            background-color: #FFFACD; /* Amarelo clarinho */
+            color: #8B0000; /* Vermelho escuro */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .numero.sorteado {
+            background-color: #32CD32; /* Verde limão vibrante */
+            color: #FFFFFF; /* Texto branco */
+            border-color: #228B22; /* Verde floresta */
+            transform: scale(1.1); /* Zoom um pouco maior */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .numero:hover:not(.sorteado) {
+            background-color: #FFD700; /* Amarelo dourado forte */
+            color: #8B0000;
+            border-color: #DAA520;
+            transform: scale(1.05);
+            cursor: grab;
+        }
+        .reset-button {
+            margin-top: 40px;
+            padding: 15px 30px; /* Botão um pouco maior */
+            font-size: 1.2em; /* Fonte do botão maior */
+            background-color: #FF4500; /* Laranja avermelhado */
+            color: white;
+            border: none;
+            border-radius: 12px; /* Mais arredondado */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+            font-weight: bold;
+            letter-spacing: 1px; /* Espaçamento entre as letras */
+            text-transform: uppercase; /* Letras maiúsculas */
+        }
+        .reset-button:hover {
+            background-color: #CD3700; /* Laranja mais escuro */
+            transform: scale(1.08); /* Zoom maior ao passar o mouse */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Rifa da Festa Junina! 🎉</h1>
+
+    <div class="info-pix-whatsapp">
+        <p>💰 **Cada número por apenas:** R$ 10,00!</p>
+        <p>📅 **Sorteio:** 20/07/2025</p>
+        <p>🔑 **Pix:** 18997311604</p>
+        <p>📱 **WhatsApp:** <a href="https://wa.me/5518997311604" target="_blank">18997311604</a></p>
+    </div>
+
+    <div class="rifa-grid" id="rifaGrid">
+        </div>
+
+    <button class="reset-button" onclick="resetRifa()">Reiniciar Rifa</button>
+
+    <script>
+        // Código JavaScript para gerar os números e a funcionalidade
+        const rifaGrid = document.getElementById('rifaGrid');
+
+        // Gera os números de 1 a 120
+        for (let i = 1; i <= 120; i++) {
+            const numeroDiv = document.createElement('div');
+            numeroDiv.classList.add('numero');
+            numeroDiv.textContent = i;
+            numeroDiv.addEventListener('click', () => {
+                numeroDiv.classList.toggle('sorteado');
+            });
+            rifaGrid.appendChild(numeroDiv);
+        }
+
+        // Função para reiniciar a rifa
+        function resetRifa() {
+            const numerosSorteados = document.querySelectorAll('.numero.sorteado');
+            numerosSorteados.forEach(numero => {
+                numero.classList.remove('sorteado');
+            });
+        }
+    </script>
+</body>
+</html>
